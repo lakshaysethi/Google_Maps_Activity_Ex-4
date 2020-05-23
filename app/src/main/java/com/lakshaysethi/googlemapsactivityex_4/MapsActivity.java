@@ -19,10 +19,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
+    private static final int LOCATION_REQUEST_CODE = 1278;
+    FusedLocationProviderClient flsc;
+    double latitude =0;
+    double longitude=0;
+
+
+    Button getLocationBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        flsc = new FusedLocationProviderClient(this);
+        getLocationBtn = findViewById(R.id.getLocationBtn);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
