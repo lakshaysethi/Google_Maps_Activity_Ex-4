@@ -57,7 +57,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (permissionGranted()){
                     if (getAndSetLocationCoordinates()){
                         mMap.clear();
-                        addMarkerToMap(latitude,longitude);
+
 
                     }else{
                         Toast.makeText(MapsActivity.this, "Please Wait.. getting Location, make sure you have LOCATION \"ON\"", Toast.LENGTH_SHORT).show();
@@ -99,6 +99,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if(getLocationTask.getResult() != null){
                     latitude = getLocationTask.getResult().getLatitude();
                     longitude = getLocationTask.getResult().getLongitude();
+                    addMarkerToMap(latitude,longitude);
                 }else{
                     Toast.makeText(MapsActivity.this, "Please Wait.. getting Location, make sure you have LOCATION \"ON\"", Toast.LENGTH_SHORT).show();
                 }
